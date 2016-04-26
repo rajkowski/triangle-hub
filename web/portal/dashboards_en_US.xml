@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TriangleHub.com landing pages
+  version:    1
+  date:       20160322
+  author:     Code for Cary
+-->
+<dashboards>
+  <portal id="portal">
+
+    <page name="calendar.shtml" title="Calendar">
+      <row>
+        <column width="auto" class="small-12 one">
+          <portlet name="ProjectAutoScrollerPortlet" class="widget-home-autoscroller-" isSensitive="true">
+            <project>${main-profile.uniqueId}</project>
+            <wiki>Calendar Announcement</wiki>
+            <width>990</width>
+            <contentIsBasedOnUser>true</contentIsBasedOnUser>
+          </portlet>
+        </column>
+      </row>
+      <row>
+        <column width="auto" class="medium-8 ">
+          <portlet name="CalendarPortlet" viewer="calendar" class="plain" isSensitive="true">
+            <title>Calendar</title>
+            <showLarge>true</showLarge>
+            <category>businesses,organizations,agencies,schools,universities,groups,events,places,topics</category>
+            <includeSubEvents>false</includeSubEvents>
+            <pageUrl>/${dashboardPage.name}</pageUrl>
+            <portlet-events>
+              <consumes-data>namespace-listview</consumes-data>
+            </portlet-events>
+          </portlet>
+          <portlet name="CalendarPortlet" viewer="filter" class="plain" isSensitive="true">
+            <title>Filter</title>
+            <category>businesses,organizations,agencies,schools,universities,groups,events,places,topics</category>
+            <portlet-events>
+              <consumes-data>namespace-listview</consumes-data>
+            </portlet-events>
+          </portlet>
+          <portlet name="ProjectWikiContentPortlet" class="plain" isSensitive="true">
+            <project>${main-profile.uniqueId}</project>
+            <wiki>Welcome to the calendar</wiki>
+            <showTitle>false</showTitle>
+            <contentIsBasedOnUser>true</contentIsBasedOnUser>
+            <defaultContent><![CDATA[
+              <div class="articleBody">
+              <h2 id="Welcome_to_the_Calendar">Welcome to the Calendar</h2>
+              <p>Here's a shared view of all the calendars that you have access to.
+              Each profile can have a calendar and calendars can be shared site-wide or with select colleagues.</p></div>]]>
+            </defaultContent>
+          </portlet>
+        </column>
+        <column width="300" class="medium-4">
+          <portlet name="CalendarPortlet" viewer="events" class="plain" isSensitive="true">
+            <title>Events</title>
+            <category>businesses,organizations,agencies,schools,universities,groups,events,places,topics</category>
+            <includeSubEvents>false</includeSubEvents>
+            <minimalView>true</minimalView>
+            <portlet-events>
+              <generates-data>namespace-listview</generates-data>
+            </portlet-events>
+          </portlet>
+        </column>
+      </row>
+    </page>
+
+    <page name="live_map.shtml" title="Live Map" description="Updated and recent information">
+      <row>
+        <column class="small-12 main">
+          <portlet name="GoogleMapsFromSearchHitsPortlet" isSensitive="true">
+            <mapHeight>250px</mapHeight>
+            <category>Places</category>
+            <useShapes>true</useShapes>
+            <zoomLevel>5</zoomLevel>
+            <defaultLatitude>35.791288</defaultLatitude>
+            <defaultLongitude>-78.699103</defaultLongitude>
+          </portlet>
+        </column>
+      </row>
+      <row>
+        <column class="medium-4 widget-live-map-latest-">
+          <portlet name="ActivityStreamPortlet" class="activity-list widget-live-map-latest-" cache="10" isSensitive="true">
+            <title>Latest updates</title>
+            <category>Places</category>
+            <limit>12</limit>
+            <automaticRefreshing>false</automaticRefreshing>
+            <!--<viewType>comments</viewType>-->
+            <showDate>false</showDate>
+            <allowReplies>false</allowReplies>
+            <nameFirstLast>true</nameFirstLast>
+            <events>
+              <value>admin-entry</value>
+              <value>user-entry</value>
+              <value>blog</value>
+            </events>
+            <portlet-events>
+              <generates-data>namespace-commentsview</generates-data>
+            </portlet-events>
+          </portlet>
+          <portlet name="ProjectWikiContentPortlet" class="panel radius" isSensitive="true">
+            <project>${main-profile.uniqueId}</project>
+            <wiki>Live Map Overview</wiki>
+            <showTitle>false</showTitle>
+            <contentIsBasedOnUser>true</contentIsBasedOnUser>
+          </portlet>
+        </column>
+        <column class="medium-4 widget-live-map-latest-">
+          <portlet name="DocumentsPortlet" viewer="photoList" class="inline-items ">
+            <title>Recent Sightings</title>
+            <project>sightings</project>
+            <columns>1</columns>
+            <limit>11</limit>
+            <showActionLinks>false</showActionLinks>
+            <showHasMoreURL>false</showHasMoreURL>
+            <showFileDetails>false</showFileDetails>
+            <flags>moderated</flags>
+          </portlet>
+        </column>
+        <column class="medium-4 widget-live-map-latest-">
+          <portlet name="SignupPortlet" isUser="false">
+            <title><![CDATA[Join ${main-profile.title:xml}]]></title>
+            <message><![CDATA[Connect with others, post comments and create your own profile]]></message>
+            <button>Join Now!</button>
+            <!--<source>site</source>-->
+            <!--<fields>nameFirst,nameLast,email,password</fields>-->
+            <!--<successPage>/</successPage>-->
+            <!--<errorPage>/</errorPage>-->
+            <!--<register>true</register>-->
+            <!--<requiresActivation>false</requiresActivation>-->
+            <showSignInLink>true</showSignInLink>
+          </portlet>
+          <portlet name="UpcomingEventListPortlet" cache="10" class="detailed-list widget-live-map-latest-" isSensitive="true">
+            <title>Upcoming events</title>
+            <category>Places</category>
+            <limit>20</limit>
+            <viewType>latest</viewType>
+            <showProfileTitle>true</showProfileTitle>
+            <showWhenEmpty>true</showWhenEmpty>
+            <successMessage>You have successfully joined this event!</successMessage>
+            <portlet-events>
+              <generates-data>namespace-latestevents</generates-data>
+            </portlet-events>
+          </portlet>
+        </column>
+      </row>
+    </page>
+
+    <page name="properties.shtml" title="Properties" description="" category="properties">
+      <row>
+        <column class="small-12 medium-8 medium-centered columns">
+          <portlet name="ProjectAutoScrollerPortlet" isSensitive="true">
+            <project>${main-profile.uniqueId}</project>
+            <wiki>Welcome to properties</wiki>
+            <width>600</width>
+            <contentIsBasedOnUser>true</contentIsBasedOnUser>
+          </portlet>
+          <portlet name="SearchFormPortlet" class="plain" cache="10">
+            <title>Search Your Address</title>
+            <category>Properties</category>
+            <!--<hasMoreURL>/page/lists/${category}</hasMoreURL>-->
+            <!--<hasMoreTitle>View All</hasMoreTitle>-->
+            <!--<showLocation>true</showLocation>-->
+          </portlet>
+          <portlet name="ProjectListByCategoryPortlet" isUser="true">
+            <title />
+            <category>Properties</category>
+            <forUser>true</forUser>
+            <view>simple</view>
+          </portlet>
+          <portlet name="HtmlReaderPortlet">
+            <filename>properties-overview.html</filename>
+          </portlet>
+          <!--
+          <portlet name="ProjectWikiContentPortlet" isSensitive="true">
+            <project>${main-profile.uniqueId}</project>
+            <wiki>Properties Overview</wiki>
+            <showTitle>false</showTitle>
+            <contentIsBasedOnUser>true</contentIsBasedOnUser>
+          </portlet>
+          -->
+        </column>
+      </row>
+    </page>
+
+  </portal>
+</dashboards>

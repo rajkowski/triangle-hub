@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TriangleHub.com profile pages
+  version:    1
+  date:       20160322
+  author:     Code for Cary
+-->
+<module>
+  <navigation>
+
+    <page name="project profile: places">
+      <row>
+        <column class="medium-7 ">
+          <row>
+            <column class="medium-8">
+              <portlet name="ProfileDescriptionPortlet" class="profile-portlet-body ">
+                <showTitle>true</showTitle>
+                <title>Description</title>
+                <showInformation>false</showInformation>
+                <showShortDescription>true</showShortDescription>
+                <showDescription>false</showDescription>
+                <editDescriptionText>Update Info</editDescriptionText>
+                <showEditDescription>true</showEditDescription>
+              </portlet>
+            </column>
+            <column class="medium-4">
+              <!-- Fan Count -->
+              <portlet name="ProfileStatsPortlet" class="text-center">
+                <title>Fan</title>
+                <plural>Fans</plural>
+                <icon>thumbs-o-up</icon>
+                <type>profileUserCount</type>
+              </portlet>
+              <portlet name="ProjectActionsPortlet">
+                <style>links</style>
+                <urls>
+                  <value><![CDATA[
+                    <content>Become a Fan</content>
+                    <title>Join ${project.title:xml} as a fan</title>
+                    <class>button small radius expand</class>
+                    <href>/ProjectManagementTeam.do?command=ConfirmJoin&amp;pid=${project.id}&amp;type=fan</href>
+                    <class>button small radius expand</class>
+                    <rel>shadowbox;width=600</rel>
+                    <rule>userCanJoin</rule>]]>
+                  </value>
+                  <value><![CDATA[
+                    <content>Become a Fan</content>
+                    <title>Request to join ${project.title:xml} as a member</title>
+                    <class>button small radius expand</class>
+                    <href>/ProjectManagementTeam.do?command=ConfirmAskToBecomeMember&amp;pid=${project.id}</href>
+                    <rel>shadowbox;width=600</rel>
+                    <rule>userCanRequestToJoin</rule>]]>
+                  </value>
+                </urls>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12">
+              <portlet name="UpcomingEventListPortlet" class="detailed-list ">
+                <title>Upcoming Events</title>
+                <limit>5</limit>
+                <successMessage>You have successfully joined this event!</successMessage>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12 medium-4 ">
+              <portlet name="ProjectActionsPortlet">
+                <style>links</style>
+                <urls>
+                  <value>
+                    <![CDATA[<content>Write a Review</content>
+                  <title>Review ${project.title:xml}</title>
+                  <icon>star-o</icon>
+                  <class>button radius expand</class>
+                  <href>/create/${project.uniqueId}/review?redirectTo=/show/${project.uniqueId}</href>
+                  <rel>shadowbox;width=600</rel>
+                  <permission>project-reviews-add</permission>
+                  <rule>userCanReview</rule>]]>
+                  </value>
+                  <value>
+                    <![CDATA[<content>Write a Review</content>
+                  <title>Review ${project.title:xml}</title>
+                  <icon>star-o</icon>
+                  <class>button radius expand</class>
+                  <href>/page/registration-required</href>
+                  <rel>shadowbox;width=600</rel>
+                  <rule>isNotUser</rule>]]>
+                  </value>
+                </urls>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12 ">
+              <!-- Reviews -->
+              <portlet name="RecentProjectReviewsPortlet">
+                <!--<title>Recent Reviews</title>-->
+                <!--<icon></icon>-->
+                <view>verbose</view>
+                <showIfEmpty>true</showIfEmpty>
+                <showAuthor>true</showAuthor>
+                <limit>5</limit>
+              </portlet>
+            </column>
+          </row>
+        </column>
+        <column class="medium-5 ">
+          <!-- Map -->
+          <portlet name="ProjectGoogleMapsPortlet" class="panel radius">
+            <useShapes>true</useShapes>
+            <showMarkers>true</showMarkers>
+            <zoomLevel>14</zoomLevel>
+          </portlet>
+          <!-- Photos -->
+          <portlet name="RecentPhotosListPortlet">
+            <title>Photos</title>
+            <icon>camera-retro</icon>
+            <limit>8</limit>
+            <showPhotoUpload>true</showPhotoUpload>
+            <emptyMessage>There are no photos yet.</emptyMessage>
+            <showMore>true</showMore>
+          </portlet>
+          <!-- Tips -->
+          <portlet name="ListsByProjectPortlet">
+            <title>Tips</title>
+            <icon>heart</icon>
+            <list>Tips</list>
+            <showListTitle>false</showListTitle>
+            <listType>ol</listType>
+            <listClass />
+            <limit>10</limit>
+            <showIfEmpty>false</showIfEmpty>
+          </portlet>
+          <!-- Hours -->
+          <portlet name="ProfileDescriptionPortlet">
+            <showTitle>true</showTitle>
+            <title>Hours</title>
+            <icon>calendar</icon>
+            <showInformation>false</showInformation>
+            <showShortDescription>false</showShortDescription>
+            <showDescription>false</showDescription>
+            <wikiForm>Hours</wikiForm>
+            <wikiName>Hours</wikiName>
+            <wikiAdminText>Please take a moment to update the hours</wikiAdminText>
+            <wikiEditText>Edit Hours</wikiEditText>
+            <listClass>ccp-eventlist-simple</listClass>
+          </portlet>
+        </column>
+      </row>
+    </page>
+
+    <page name="project profile: properties">
+      <row>
+        <column class="medium-7 ">
+          <row>
+            <column class="small-12">
+              <portlet name="ProfileDetailsPortlet" viewer="areaList">
+                <title>Council District:</title>
+                <category>Districts</category>
+              </portlet>
+              <portlet name="ProfileDetailsPortlet" viewer="areaList">
+                <title>Schools:</title>
+                <category>Schools</category>
+              </portlet>
+              <!--
+              <portlet name="ProfileDetailsPortlet" viewer="areaList">
+                <title>Neighborhood:</title>
+                <category>Neighborhood</category>
+              </portlet>
+              -->
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Solid waste and recycling schedule</title>
+                <icon>trash</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=solid-waste-and-recycling-collection-routes&amp;geofilter.distance=${project.latitude},${project.longitude},0&amp;rows=1&amp;fields=day,cycle&amp;location=14,35.82836,-78.79201</url>
+                <fields>day=Pickup Day,cycle=Recycle Week</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Building data</title>
+                <icon>building</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=building-points&amp;q=location%3D%22${project.title:url}%22&amp;rows=1</url>
+                <fields>yearbuilt=Year built,sqft=Square feet,bldgstyle=Building style,owner=Owner,owner2=Owner,units=Number of units,rooms=Number of rooms,storyheight=Number of stories</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+            <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Real estate data</title>
+                <icon>map</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=property&amp;fields=county,deedacres,bldgvalue,landvalue,totalsaledate,totalsalevalue&amp;q=location%3D%22${project.title:url}%22&amp;rows=1</url>
+                <fields>county=County,deedacres=Acres,bldgvalue=Building value,landvalue=Land value,totalsaledate=Last sale date,totalsalevalue=Last sale amount</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12">
+              <!--
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Emergency Contacts</title>
+                <icon>phone</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=solid-waste-and-recycling-collection-routes&amp;geofilter.distance=${project.latitude},${project.longitude},0&amp;rows=1&amp;location=14,35.82836,-78.79201</url>
+                <fields>day=Day,cycle=Recycle Week</fields>
+              </portlet>
+              -->
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Building permits for this property</title>
+                <icon>check-square-o</icon>
+                <url>http://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;fields=application,application_type,structure_details&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
+                <fields>application=Permit,application_type=Type,structure_details=Details</fields>
+                <unused>general_contractor=Contractor</unused>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Contractors at this location</title>
+                <icon>truck</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=permit-contractors&amp;fields=year,contractorcompanyname2&amp;q=applicationaddress1%3D%22${project.title:url}%22&amp;rows=100&amp;sort=-year&amp;facet=applicationaddress1</url>
+                <fields>year=Year,contractorcompanyname2=Contractor</fields>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Recent crime nearby</title>
+                <icon>user-secret</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=cpd-incidents&amp;fields=date_from,crime_type,residential_subdivision,geocode&amp;sort=newdate&amp;q=newdate+%3E%3D+%23now(days%3D-90)+and+(offensecategory%3DBurglary+or+Murder+or+Robbery+or+Motor+Vehicle+Theft+or+Stolen+Property+or+Vandalism+or+Arson)&amp;geofilter.distance=${project.latitude},${project.longitude},2000</url>
+                <fields>date_from=Date,crime_type=Type,residential_subdivision=Location,geocode=Street</fields>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12 ">
+              <portlet name="HtmlReaderPortlet">
+                <filename>properties-1.html</filename>
+              </portlet>
+            </column>
+          </row>
+        </column>
+        <column class="medium-5 ">
+          <row>
+            <column class="small-6">
+              <!-- Follow Count -->
+              <portlet name="ProfileStatsPortlet" class="text-center panel radius">
+                <title>Follower</title>
+                <plural>Followers</plural>
+                <icon>bookmark-o</icon>
+                <type>profileUserCount</type>
+              </portlet>
+            </column>
+            <column class="small-6">
+              <!-- Follow This -->
+              <portlet name="ProjectActionsPortlet">
+                <style>links</style>
+                <urls>
+                  <value><![CDATA[
+                    <content>Follow This</content>
+                    <title>Follow ${project.title:xml} for information</title>
+                    <href>/ProjectManagementTeam.do?command=ConfirmJoin&amp;pid=${project.id}&amp;type=fan</href>
+                    <class>button radius expand</class>
+                    <rel>shadowbox;width=600</rel>
+                    <rule>userCanJoin</rule>]]>
+                  </value>
+                  <value><![CDATA[
+                    <content>Follow This</content>
+                    <title>Request to join ${project.title:xml} as a member</title>
+                    <class>button radius expand</class>
+                    <href>/ProjectManagementTeam.do?command=ConfirmAskToBecomeMember&amp;pid=${project.id}</href>
+                    <rel>shadowbox;width=600</rel>
+                    <rule>userCanRequestToJoin</rule>]]>
+                  </value>
+                  <value><![CDATA[
+                    <content>Unfollow</content>
+                    <title>Remove yourself from ${project.title:xml}</title>
+                    <icon>sign-out</icon>
+                    <class>button radius secondary expand</class>
+                    <href>javascript:confirmForward('${ctx}/ProjectManagementTeam.do?command=Leave&amp;pid=${project.id}&amp;show=landing');</href>
+                    <rule>isTeamMember</rule>]]>
+                  </value>
+                  <value><![CDATA[
+                    <content>Create a Project</content>
+                    <title>Create a Project for ${project.title:xml}</title>
+                    <icon>plus</icon>
+                    <class>button radius secondary expand</class>
+                    <href>/start_project.shtml?parentId=${project.id}</href>
+                    <categoryEnabled>Projects</categoryEnabled>
+                    <rule>canStartProjects</rule>]]>
+                  </value>
+                </urls>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12 ">
+              <!-- Map -->
+              <portlet name="ProjectGoogleMapsPortlet" class="panel radius" />
+            </column>
+          </row>
+        </column>
+      </row>
+    </page>
+
+    <page name="project profile-popup: properties">
+      <row>
+        <column class="small-12">
+          <row>
+            <column class="small-12">
+              <portlet name="ProfileDetailsPortlet" viewer="areaList">
+                <title>Council District:</title>
+                <category>Districts</category>
+              </portlet>
+              <portlet name="ProfileDetailsPortlet" viewer="areaList">
+                <title>Schools:</title>
+                <category>Schools</category>
+              </portlet>
+              <!--
+              <portlet name="ProfileDetailsPortlet" viewer="areaList">
+                <title>Neighborhood:</title>
+                <category>Neighborhood</category>
+              </portlet>
+              -->
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Solid waste and recycling schedule</title>
+                <icon>trash</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=solid-waste-and-recycling-collection-routes&amp;geofilter.distance=${project.latitude},${project.longitude},0&amp;rows=1&amp;fields=day,cycle&amp;location=14,35.82836,-78.79201</url>
+                <fields>day=Pickup Day,cycle=Recycle Week</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Building data</title>
+                <icon>building</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=building-points&amp;q=location%3D%22${project.title:url}%22&amp;rows=1</url>
+                <fields>yearbuilt=Year built,sqft=Square feet,bldgstyle=Building style,owner=Owner,owner2=Owner,units=Number of units,rooms=Number of rooms,storyheight=Number of stories</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+            <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Real estate data</title>
+                <icon>map</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=property&amp;fields=county,deedacres,bldgvalue,landvalue,totalsaledate,totalsalevalue&amp;q=location%3D%22${project.title:url}%22&amp;rows=1</url>
+                <fields>county=County,deedacres=Acres,bldgvalue=Building value,landvalue=Land value,totalsaledate=Last sale date,totalsalevalue=Last sale amount</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12">
+              <!--
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Emergency Contacts</title>
+                <icon>phone</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=solid-waste-and-recycling-collection-routes&amp;geofilter.distance=${project.latitude},${project.longitude},0&amp;rows=1&amp;location=14,35.82836,-78.79201</url>
+                <fields>day=Day,cycle=Recycle Week</fields>
+              </portlet>
+              -->
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Building permits for this property</title>
+                <icon>check-square-o</icon>
+                <url>http://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;fields=application,application_type,structure_details&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
+                <fields>application=Permit,application_type=Type,structure_details=Details</fields>
+                <unused>general_contractor=Contractor</unused>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Contractors at this location</title>
+                <icon>truck</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=permit-contractors&amp;fields=year,contractorcompanyname2&amp;q=applicationaddress1%3D%22${project.title:url}%22&amp;rows=100&amp;sort=-year&amp;facet=applicationaddress1</url>
+                <fields>year=Year,contractorcompanyname2=Contractor</fields>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Recent crime nearby</title>
+                <icon>user-secret</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=cpd-incidents&amp;fields=date_from,crime_type,residential_subdivision,geocode&amp;sort=newdate&amp;q=newdate+%3E%3D+%23now(days%3D-90)+and+(offensecategory%3DBurglary+or+Murder+or+Robbery+or+Motor+Vehicle+Theft+or+Stolen+Property+or+Vandalism+or+Arson)&amp;geofilter.distance=${project.latitude},${project.longitude},2000</url>
+                <fields>date_from=Date,crime_type=Type,residential_subdivision=Location</fields>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12 ">
+              <portlet name="HtmlReaderPortlet">
+                <filename>properties-1.html</filename>
+              </portlet>
+            </column>
+          </row>
+        </column>
+      </row>
+    </page>
+
+    <page name="project profile: schools">
+      <row>
+        <column class="medium-7 ">
+          <row>
+            <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>School data</title>
+                <icon>graduation-cap</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=wcpss&amp;q=namelong%3D%22${project.title:url}%22&amp;rows=1</url>
+                <fields>calendar=Calendar Year,lograde=Lowest grade level,higrade=Highest grade level,capacityto=Student Capacity,is_title1=Is Title 1,is_magnet=Is Magnet school</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+<!--
+            <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Contact info</title>
+                <icon>institution</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=wcpss&amp;q=namelong%3D%22${project.title:url}%22&amp;rows=1</url>
+                <fields>addrnumber=Address,addrroot=Street,addrcity_1=City,addrzipcode=Zipcode,phone=Phone,website=Website</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+-->
+          </row>
+
+          <row>
+            <column class="small-12">
+              <!--
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Emergency Contacts</title>
+                <icon>phone</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=solid-waste-and-recycling-collection-routes&amp;geofilter.distance=${project.latitude},${project.longitude},0&amp;rows=1&amp;location=14,35.82836,-78.79201</url>
+                <fields>day=Day,cycle=Recycle Week</fields>
+              </portlet>
+              -->
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Recent crime nearby</title>
+                <icon>user-secret</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=cpd-incidents&amp;sort=newdate&amp;q=newdate+%3E%3D+%23now(days%3D-90)&amp;geofilter.distance=${project.latitude},${project.longitude},2000&amp;rows=10</url>
+                <fields>date_from=Date,crime_type=Type,residential_subdivision=Location,geocode=Street</fields>
+              </portlet>
+              <!--
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Building permits for this property</title>
+                <icon>check-square-o</icon>
+                <url>http://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
+                <fields>application=Permit,application_type=Type,structure_details=Details</fields>
+                <unused>general_contractor=Contractor</unused>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Contractors at this location</title>
+                <icon>truck</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=permit-contractors&amp;q=applicationaddress1%3D%22${project.title:url}%22&amp;rows=100&amp;sort=-year&amp;facet=applicationaddress1</url>
+                <fields>year=Year,contractorcompanyname2=Contractor</fields>
+              </portlet>
+              -->
+            </column>
+          </row>
+          <row>
+            <column class="small-12 ">
+              <portlet name="HtmlReaderPortlet">
+                <filename>schools-1.html</filename>
+              </portlet>
+            </column>
+          </row>
+        </column>
+        <column class="medium-5 ">
+          <row>
+            <column class="small-6">
+              <!-- Follow Count -->
+              <portlet name="ProfileStatsPortlet" class="text-center panel radius">
+                <title>Follower</title>
+                <plural>Followers</plural>
+                <icon>bookmark-o</icon>
+                <type>profileUserCount</type>
+              </portlet>
+            </column>
+            <column class="small-6">
+              <!-- Follow This -->
+              <portlet name="ProjectActionsPortlet">
+                <style>links</style>
+                <urls>
+                  <value><![CDATA[
+                    <content>Follow This</content>
+                    <title>Follow ${project.title:xml} for information</title>
+                    <href>/ProjectManagementTeam.do?command=ConfirmJoin&amp;pid=${project.id}&amp;type=fan</href>
+                    <class>button radius expand</class>
+                    <rel>shadowbox;width=600</rel>
+                    <rule>userCanJoin</rule>]]>
+                  </value>
+                  <value><![CDATA[
+                    <content>Follow This</content>
+                    <title>Request to join ${project.title:xml} as a member</title>
+                    <class>button radius expand</class>
+                    <href>/ProjectManagementTeam.do?command=ConfirmAskToBecomeMember&amp;pid=${project.id}</href>
+                    <rel>shadowbox;width=600</rel>
+                    <rule>userCanRequestToJoin</rule>]]>
+                  </value>
+                  <value><![CDATA[
+                    <content>Unfollow</content>
+                    <title>Remove yourself from ${project.title:xml}</title>
+                    <icon>sign-out</icon>
+                    <class>button radius secondary expand</class>
+                    <href>javascript:confirmForward('${ctx}/ProjectManagementTeam.do?command=Leave&amp;pid=${project.id}&amp;show=landing');</href>
+                    <rule>isTeamMember</rule>]]>
+                  </value>
+                  <value><![CDATA[
+                    <content>Create a Group</content>
+                    <title>Create a Group for ${project.title:xml}</title>
+                    <icon>plus</icon>
+                    <class>button radius secondary expand</class>
+                    <href>/start_group.shtml?parentId=${project.id}</href>
+                    <categoryEnabled>Groups</categoryEnabled>
+                    <rule>canStartProjects</rule>]]>
+                  </value>
+                </urls>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12 ">
+              <!-- Map -->
+              <portlet name="ProjectGoogleMapsPortlet" class="panel radius">
+                <useShapes>true</useShapes>
+                <showMarkers>false</showMarkers>
+                <!--<zoomLevel>11</zoomLevel>-->
+              </portlet>
+              <!-- Photos -->
+              <portlet name="RecentPhotosListPortlet">
+                <title>Photos</title>
+                <icon>camera-retro</icon>
+                <limit>8</limit>
+                <showPhotoUpload>true</showPhotoUpload>
+                <emptyMessage>There are no photos yet.</emptyMessage>
+                <showMore>true</showMore>
+              </portlet>
+            </column>
+          </row>
+        </column>
+      </row>
+    </page>
+
+    <page name="project profile-popup: schools">
+          <row>
+            <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>School data</title>
+                <icon>graduation-cap</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=wcpss&amp;q=namelong%3D%22${project.title:url}%22&amp;rows=1</url>
+                <fields>calendar=Calendar Year,lograde=Lowest grade level,higrade=Highest grade level,capacityto=Student Capacity,is_title1=Is Title 1,is_magnet=Is Magnet school</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+<!--
+            <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Contact info</title>
+                <icon>institution</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=wcpss&amp;q=namelong%3D%22${project.title:url}%22&amp;rows=1</url>
+                <fields>addrnumber=Address,addrroot=Street,addrcity_1=City,addrzipcode=Zipcode,phone=Phone,website=Website</fields>
+                <display>details</display>
+              </portlet>
+            </column>
+-->
+          </row>
+
+          <row>
+            <column class="small-12">
+              <!--
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Emergency Contacts</title>
+                <icon>phone</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=solid-waste-and-recycling-collection-routes&amp;geofilter.distance=${project.latitude},${project.longitude},0&amp;rows=1&amp;location=14,35.82836,-78.79201</url>
+                <fields>day=Day,cycle=Recycle Week</fields>
+              </portlet>
+              -->
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Recent crime nearby</title>
+                <icon>user-secret</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=cpd-incidents&amp;sort=newdate&amp;q=newdate+%3E%3D+%23now(days%3D-90)&amp;geofilter.distance=${project.latitude},${project.longitude},2000&amp;rows=10</url>
+                <fields>date_from=Date,crime_type=Type,residential_subdivision=Location,geocode=Street</fields>
+              </portlet>
+              <!--
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Building permits for this property</title>
+                <icon>check-square-o</icon>
+                <url>http://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
+                <fields>application=Permit,application_type=Type,structure_details=Details</fields>
+                <unused>general_contractor=Contractor</unused>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Contractors at this location</title>
+                <icon>truck</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=permit-contractors&amp;q=applicationaddress1%3D%22${project.title:url}%22&amp;rows=100&amp;sort=-year&amp;facet=applicationaddress1</url>
+                <fields>year=Year,contractorcompanyname2=Contractor</fields>
+              </portlet>
+              -->
+            </column>
+          </row>
+          <row>
+            <column class="small-12 ">
+              <portlet name="HtmlReaderPortlet">
+                <filename>schools-1.html</filename>
+              </portlet>
+            </column>
+          </row>
+    </page>
+
+<!--
+    <page name="project profile: council districts">
+
+    </page>
+-->
+  </navigation>
+</module>
+

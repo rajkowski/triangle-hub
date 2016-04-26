@@ -1,0 +1,425 @@
+/*
+ * file information
+ * style type: triangle hub
+ * version:    1
+ * date:       20160322
+ *
+ */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(../../../../../fonts/opensans-light.woff) format('woff');
+}
+
+body {
+  color: #111111;
+  font-family: 'Open Sans', Helvetica, Arial, Verdana, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', serif;
+  font-weight: lighter;
+  color: #000000;
+}
+
+.ccp-portlet a:not(.button), .ccp-portlet a:not(.button):link, .ccp-portlet a:not(.button):visited {
+  color: #185BD1;
+}
+
+.ccp-portlet a:not(.button):hover {
+  color: blue;
+}
+
+.orbit-container .orbit-prev, .orbit-container .orbit-next {
+  background-color: #7f7e80;
+  background-color: rgba(127, 127, 127, 0.8);
+}
+
+/* Home background */
+
+/* Logged Out */
+#body-home-main, #body-index_editor {
+  background: url(../images/background_home.jpg) no-repeat center top;
+  background-attachment: fixed;
+}
+
+/* Logged In scroll effect but not retina 
+div#dashboard-header-body {
+  background: url(../images/background_dashboard.jpg) no-repeat center top;
+  background-attachment: fixed;
+} */
+
+/* Logged In no scroll effect but retina */
+div#dashboard-header-body {
+  background-image: url(../images/background_dashboard@2x.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Home top bar */
+
+#ccp-home-top-bar,
+#ccp-home-top-bar ul,
+#ccp-home-top-bar li:not(.has-form) a:not(.button),
+#ccp-home-top-bar .top-bar-section .has-form {
+  background: none;
+}
+
+#ccp-home-top-bar ul li a:not(.button) {
+  color: #ffffff;
+}
+
+#ccp-home-top-bar ul li a:not(.button):hover {
+  text-decoration: underline;
+}
+
+/* Home header section */
+
+#home-header-top {
+  height: 40px;
+}
+#home-header-bottom {
+  height: 10px;
+}
+
+#body-home-main #home-header-body,
+#body-home-main #home-header-body h2,
+#body-home-main #home-header-body h3,
+#body-home-main #home-header-body h4,
+#body-index_editor #home-header-body,
+#body-index_editor #home-header-body h2,
+#body-index_editor #home-header-body h3,
+#body-index_editor #home-header-body h4
+{
+  color: #ffffff;
+  line-height: 1.3;
+  text-shadow: 1px 1px #333;
+}
+
+#home-header-body .medium-7 {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: none !important;
+}
+
+#home-header-body .medium-7 a, #home-header-body .medium-7 a:visited {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#ccp-signup-portlet {
+  background-color: rgba(255, 255, 255, 0.6);
+  text-shadow: none !important;
+}
+
+#ccp-signup-portlet h2, #ccp-signup-portlet h3, #ccp-signup-portlet h4 {
+  color: #000000 !important;
+  text-shadow: none !important;
+}
+
+#ccp-signup-portlet p {
+  color: #000000;
+  text-shadow: none;
+}
+
+#ccp-signup label {
+  color: #000000;
+  text-shadow: none;
+}
+
+/* Home intro section */
+
+#ccp-home-intro {
+  background-color: #ffffff;
+  padding-top: 20px;
+}
+
+/* Home info section */
+
+#ccp-home-info {
+  background-color: #ffffff;
+  padding-top: 20px;
+}
+/* To style the buttons for 4 colums on home page */
+#ccp-home-info a {
+  color: #ffffff;
+  text-decoration: none;
+  line-height: inherit;
+  background-color: #dd7726;
+  padding: 5px;
+}
+
+#ccp-home-info a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  line-height: inherit;
+  background-color: #cc630f;
+  padding: 5px;
+}
+
+#ccp-home-info a:active {
+  color: #ffffff;
+  text-decoration: none;
+  line-height: inherit;
+  background-color: #dd7726;
+  padding: 5px;
+}
+
+/* Home benefits section */
+
+#ccp-home-benefits {
+  background-color: #dddddd;
+  padding-top: 30px;
+}
+
+#ccp-home-benefits table {
+  /*width:100%;*/
+  border:none;
+}
+#ccp-home-benefits tr {
+  background:none;
+}
+#ccp-home-benefits td {
+  border:none;
+  background-color:#dddddd;
+}
+#ccp-home-benefits td img {
+  max-width: 70px;
+}
+
+/* Logged In Dashboard */
+
+#dashboard-header-top {
+  height: 40px;
+}
+#dashboard-header-bottom {
+  height: 10px;
+}
+
+#body-home #dashboard-header-body, #body-home #dashboard-header-body h2, #body-home #dashboard-header-body h3, #body-home #dashboard-header-body h4 {
+  color: #ffffff;
+  line-height: 1.3;
+  text-shadow: 1px 1px #333;
+}
+
+
+/* The portal */
+
+.ccp-portal {
+  background-color: #ffffff;
+}
+
+/* Primary Button */
+/* This is the join button on the home page etc */
+.top-bar-section ul li > a.button, .button {
+  background-color: #dd7726;
+  border-color: #dd7726;
+  text-shadow: 1px 1px #333;
+}
+
+.top-bar-section ul li > a.button:hover, .button:hover {
+  background-color: #cc630f;
+}
+
+#ccp-home-top-bar .top-bar-section .has-form {
+  padding: 0
+}
+
+/* Success Button */
+/* This is the login button etc */
+button.success, .button.success {
+  background-color: #000000;
+  border-color: #000000;
+  text-shadow: 1px 1px #333;
+}
+
+button.success:hover, .button.success:hover {
+  background-color: #333333;
+}
+
+/* Secondary Button */
+
+button.secondary, .button.secondary {
+  background-color: #e7e7e7;
+  border-color: #cbcbcb;
+  text-shadow: 1px 1px #e7e7e7;
+}
+
+button.secondary:hover, .button.secondary:hover {
+  background-color: #cbcbcb;
+}
+
+/* Alert Button */
+
+button.alert, .button.alert {
+  background-color: #c60f13;
+  border-color: #920d10;
+  text-shadow: 1px 1px #333;
+}
+
+button.alert:hover, .button.alert:hover {
+  background-color: #920d10;
+}
+
+/* Panels */
+/* Regular gray portlets */
+.panel {
+  border-color: #ebebeb;
+  background-color: #f9f9f9;
+}
+/* Color portlets */
+.panel.callout {
+  border-color: #f39449;
+  background-color: #f3a76b;    
+}
+
+/* Filter menus */
+
+dl.sub-nav dd.active a, dl.sub-nav dd.active a:hover {
+  background-color: #758e18;
+  color: #ffffff !important;
+}
+
+
+/* Profile Headers */
+
+#ccp-profile-menu .sub-nav {
+  margin-bottom: 0;
+}
+
+.projectCenterPortalContainer .ccp-portal {
+  padding-top: 0;
+}
+
+#ccp-profile-header-container {
+  background-color: #cccccc;
+}
+#ccp-profile-header h2 {
+  color: #333333;
+}
+#ccp-profile-menu {
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 16px;
+}
+
+#ccp-profile-header-container .sub-nav dd {
+  margin-bottom: 0;
+}
+
+#ccp-profile-header-container .sub-nav .active a {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#ccp-profile-header-container .sub-nav a {
+  color: #666666;
+}
+
+#ccp-profile-header-container .sub-nav a:hover {
+  background-color: #79413a;
+  color: #ffffff;
+}
+
+/* Profile Header: Me */
+/*
+#body-me #ccp-profile-header-container {
+  padding: 16px 0 0 0;
+  background: url(../images/profile-header-me.jpg) repeat-x 0;
+  margin-bottom:20px;
+}
+#body-me #ccp-profile-menu {
+  background: none;
+}
+#body-me #ccp-profile-header-container h2,
+#body-me #ccp-profile-header-container h4,
+#body-me #ccp-profile-header-container a {
+  color: #ffffff;
+}
+*/
+
+#body-me dl.sub-nav .active a {
+  background-color: #000000;
+  color: #000000;
+}
+
+/* Profile Header: Ideas */
+
+#body-ideas #ccp-profile-header-container {
+  background-color: #a7cf52;
+}
+#body-ideas #ccp-profile-header h2 {
+  color: #ffffff;
+}
+#body-ideas #ccp-profile-menu {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer */
+
+#footer {
+  background: #333333;
+  padding-top: 20px;
+  color: #FFF;
+}
+
+#footer a, #footer a:visited {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 100;
+  text-decoration: none;
+}
+#footer .text-right a,
+#footer .text-right a:visited {
+  padding-left: 18px;
+}
+
+
+
+
+/* To remove above styling for links in the footer menu 
+#footer .text-right a, #footer .text-right a:visited {
+  background: none !important;
+}*/
+
+/* To make the app store buttons rollovers */
+img#wikiImagebutton_play_videopng:hover {
+  opacity: 0.7;
+}
+
+img#wikiImagebutton_play_videopng:active {
+  opacity: 1;
+}
+
+img#wikiImagebutton_get_appspng:hover {
+  opacity: 0.7;
+}
+
+img#wikiImagebutton_get_appspng:active {
+  opacity: 1;
+}
+
+/* temporary until in core */
+
+/*
+.tag-list dl dd a, .tag-cloud ul li a, .tag-cloud dd a {
+  background-color: transparent;
+  border: 1px solid #536511;
+}
+.tag-list dl dd a:hover, .tag-cloud ul li a:hover, .tag-cloud dd a:hover {
+  background-color: #e7e7e7;
+  border: 1px solid #536511;
+}
+*/
+
+/* To hide the apps and video buttons */
+
+img#wikiImagebutton_get_appspng {
+  display: none;
+}
+
+img#wikiImagebutton_play_videopng {
+  display: none;
+}
+
+
