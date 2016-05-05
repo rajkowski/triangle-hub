@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TriangleHub.com profile header layout
+  version:    1
+  date:       20160505
+  author:     Code for Cary
+-->
+<module>
+  <header>
+    <page name="profile header: art">
+      <row id="ccp-profile-header-container" type="subheader">
+        <column>
+          <row id="ccp-profile-header">
+            <column>
+              <row class="row">
+                <column class="medium-6 columns">
+                  <portlet id="ccp-profile-header-title" name="ProfileDetailsPortlet" viewer="title">
+                    <showAddress>false</showAddress>
+                  </portlet>
+                </column>
+                <column class="medium-6 columns">
+                  <!-- badge icons -->
+                  <portlet name="ProfileDetailsPortlet" viewer="badges" class="medium-text-right right" />
+                  <!-- admin config buttons -->
+                  <portlet name="ProfileDetailsPortlet" viewer="admin" class="right" />
+                  <!-- user role label -->
+                  <portlet name="ProfileDetailsPortlet" viewer="userRole" class="right" />
+                </column>
+              </row>
+            </column>
+          </row>
+          <row id="ccp-profile-menu">
+            <column>
+              <row class="row">
+                <column class="small-12 columns">
+                  <!-- sub nav -->
+                  <portlet name="ProfileTabsPortlet">
+                    <type>sub nav</type>
+                    <!--<type>button group</type>-->
+                  </portlet>
+                </column>
+              </row>
+            </column>
+          </row>
+        </column>
+      </row>
+    </page>
+  </header>
+</module>
