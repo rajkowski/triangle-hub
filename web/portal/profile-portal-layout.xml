@@ -1,12 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   TriangleHub.com profile pages
-  version:    1
-  date:       20160322
+  version:    2
+  date:       20160505
   author:     Code for Cary
 -->
 <module>
   <navigation>
+
+    <page name="project profile: art">
+      <row>
+        <column class="medium-7 ">
+          <row>
+            <column class="medium-8">
+              <portlet name="ProfileImagePortlet" class="profileImage">
+                <showControls>false</showControls>
+                <!--<allowVideos>true</allowVideos>-->
+              </portlet>
+              <portlet name="ProfileDescriptionPortlet" class="profile-portlet-body ">
+                <showTitle>false</showTitle>
+                <title>Description</title>
+                <showInformation>false</showInformation>
+                <showShortDescription>false</showShortDescription>
+                <showDescription>false</showDescription>
+                <wikiForm>Art Information</wikiForm>
+              </portlet>
+            </column>
+            <column class="medium-4">
+              <!-- Fan Count -->
+              <portlet name="ProfileStatsPortlet" class="text-center">
+                <title>Fan</title>
+                <plural>Fans</plural>
+                <icon>thumbs-o-up</icon>
+                <type>profileUserCount</type>
+              </portlet>
+              <portlet name="ProjectActionsPortlet">
+                <style>links</style>
+                <urls>
+                  <value><![CDATA[
+                    <content>Become a Fan</content>
+                    <title>Join ${project.title:xml} as a fan</title>
+                    <class>button small radius expand</class>
+                    <href>/ProjectManagementTeam.do?command=ConfirmJoin&amp;pid=${project.id}&amp;type=fan</href>
+                    <class>button small radius expand</class>
+                    <rel>shadowbox;width=600</rel>
+                    <rule>userCanJoin</rule>]]>
+                  </value>
+                  <value><![CDATA[
+                    <content>Become a Fan</content>
+                    <title>Request to join ${project.title:xml} as a member</title>
+                    <class>button small radius expand</class>
+                    <href>/ProjectManagementTeam.do?command=ConfirmAskToBecomeMember&amp;pid=${project.id}</href>
+                    <rel>shadowbox;width=600</rel>
+                    <rule>userCanRequestToJoin</rule>]]>
+                  </value>
+                </urls>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12">
+              <portlet name="UpcomingEventListPortlet" class="detailed-list ">
+                <title>Upcoming Events</title>
+                <limit>5</limit>
+                <successMessage>You have successfully joined this event!</successMessage>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12 medium-4 ">
+              <portlet name="ProjectActionsPortlet">
+                <style>links</style>
+                <urls>
+                  <value>
+                    <![CDATA[<content>Write a Review</content>
+                  <title>Review ${project.title:xml}</title>
+                  <icon>star-o</icon>
+                  <class>button radius expand</class>
+                  <href>/create/${project.uniqueId}/review?redirectTo=/show/${project.uniqueId}</href>
+                  <rel>shadowbox;width=600</rel>
+                  <permission>project-reviews-add</permission>
+                  <rule>userCanReview</rule>]]>
+                  </value>
+                  <value>
+                    <![CDATA[<content>Write a Review</content>
+                  <title>Review ${project.title:xml}</title>
+                  <icon>star-o</icon>
+                  <class>button radius expand</class>
+                  <href>/page/registration-required</href>
+                  <rel>shadowbox;width=600</rel>
+                  <rule>isNotUser</rule>]]>
+                  </value>
+                </urls>
+              </portlet>
+            </column>
+          </row>
+          <row>
+            <column class="small-12 ">
+              <!-- Reviews -->
+              <portlet name="RecentProjectReviewsPortlet">
+                <!--<title>Recent Reviews</title>-->
+                <!--<icon></icon>-->
+                <view>verbose</view>
+                <showIfEmpty>true</showIfEmpty>
+                <showAuthor>true</showAuthor>
+                <limit>5</limit>
+              </portlet>
+            </column>
+          </row>
+        </column>
+        <column class="medium-5 ">
+          <!-- Map -->
+          <portlet name="ProjectGoogleMapsPortlet" class="panel radius">
+            <!--<useShapes>true</useShapes>-->
+            <!--<showMarkers>true</showMarkers>-->
+            <!--<zoomLevel>14</zoomLevel>-->
+          </portlet>
+          <!-- Photos -->
+          <portlet name="RecentPhotosListPortlet">
+            <title>Photos</title>
+            <icon>camera-retro</icon>
+            <limit>8</limit>
+            <showPhotoUpload>true</showPhotoUpload>
+            <emptyMessage>There are no photos yet.</emptyMessage>
+            <showMore>true</showMore>
+          </portlet>
+        </column>
+      </row>
+    </page>
 
     <page name="project profile: places">
       <row>
@@ -21,6 +142,13 @@
                 <showDescription>false</showDescription>
                 <editDescriptionText>Update Info</editDescriptionText>
                 <showEditDescription>true</showEditDescription>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Place data</title>
+                <icon>map</icon>
+                <url>https://data.townofcary.org/api/records/1.0/search/?dataset=cary-parks-and-recreation-areas&amp;q=name%3D%22${project.title:url}%22</url>
+                <fields>feature=Features</fields>
+                <display>details</display>
               </portlet>
             </column>
             <column class="medium-4">

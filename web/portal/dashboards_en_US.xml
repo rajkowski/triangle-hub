@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   TriangleHub.com landing pages
-  version:    1
-  date:       20160322
+  version:    2
+  date:       20160505
   author:     Code for Cary
 -->
 <dashboards>
@@ -141,6 +141,186 @@
             <portlet-events>
               <generates-data>namespace-latestevents</generates-data>
             </portlet-events>
+          </portlet>
+        </column>
+      </row>
+    </page>
+
+    <page name="art.shtml" title="Art" description="" category="art">
+      <row>
+        <column class="small-12 main">
+          <portlet name="ProjectAutoScrollerPortlet" isSensitive="true">
+            <project>${main-profile.uniqueId}</project>
+            <wiki>Welcome to art</wiki>
+            <width>600</width>
+            <contentIsBasedOnUser>true</contentIsBasedOnUser>
+          </portlet>
+          <portlet name="GoogleMapsFromSearchHitsPortlet" isSensitive="true">
+            <mapHeight>250px</mapHeight>
+            <category>Art</category>
+            <zoomLevel>5</zoomLevel>
+            <defaultLatitude>35.791288</defaultLatitude>
+            <defaultLongitude>-78.699103</defaultLongitude>
+          </portlet>
+          <portlet name="ProjectAutoScrollerPortlet" isSensitive="true">
+            <project>${main-profile.uniqueId}</project>
+            <wiki>Art information</wiki>
+            <width>600</width>
+            <contentIsBasedOnUser>true</contentIsBasedOnUser>
+          </portlet>
+        </column>
+      </row>
+      <row>
+        <column class="medium-8">
+          <!--
+          <portlet name="NewProjectsByCategoryPortlet" cache="10" class="detailed-list list-height100" isSensitive="true">
+            <title>Recent Art</title>
+            <category>Art</category>
+            <showWhenProjectCount>50</showWhenProjectCount>
+            <limit>10</limit>
+            <columns>2</columns>
+            <hasMoreURL>/page/lists/${category}</hasMoreURL>
+          </portlet>
+          -->
+          <portlet name="NewProjectsByCategoryPortlet" cache="10" class="detailed-list list-height100 clearfix" isSensitive="true">
+            <title>Public Art</title>
+            <category>Art</category>
+            <!--<skipWhenProjectCount>50</skipWhenProjectCount>-->
+            <limit>99</limit>
+            <columns>3</columns>
+            <sortOrder>title</sortOrder>
+          </portlet>
+          <portlet name="ActionsPortlet">
+            <style>links</style>
+            <urls>
+              <value>
+                <![CDATA[
+              <content>Add art</content>
+              <title>Add art</title>
+              <icon>plus-square</icon>
+              <class>button</class>
+              <href>/add_art.shtml</href>
+              <rule>isAdmin</rule>
+              <categoryEnabled>Art</categoryEnabled>
+            ]]>
+              </value>
+            </urls>
+          </portlet>
+        </column>
+        <column class="medium-4">
+          <portlet name="ProjectWikiContentPortlet" class="panel radius" isSensitive="true">
+            <project>${main-profile.uniqueId}</project>
+            <wiki>Art spotlight</wiki>
+            <showTitle>false</showTitle>
+            <contentIsBasedOnUser>true</contentIsBasedOnUser>
+          </portlet>
+          <portlet name="ActivityStreamPortlet" class="activity-list " cache="10" isSensitive="true">
+            <title>Recent Activity</title>
+            <category>Art</category>
+            <showReplies>false</showReplies>
+            <allowReplies>false</allowReplies>
+            <viewType>summary</viewType>
+            <events>
+              <!--<value>ad</value>-->
+              <!--<value>badge</value>-->
+              <value>blog=2009022616</value>
+              <!--<value>challenge</value>-->
+              <!--<value>classified</value>-->
+              <!--<value>discussion</value>-->
+              <!--<value>document</value>-->
+              <!--<value>image</value>-->
+              <value>photo=2010820404</value>
+              <!--<value>video=2011121606</value>-->
+              <!--<value>invites</value>-->
+              <!--<value>member</value>-->
+              <!--<value>meeting</value>-->
+              <!--<value>profile=2009022601</value>-->
+              <value>rating=2009022614</value>
+              <!--<value>topic</value>-->
+              <!--<value>question</value>-->
+              <!--<value>reply</value>-->
+              <!--<value>wiki</value>-->
+              <!--<value>broadcast-entry</value>-->
+              <!--<value>user-entry=2009033118</value>-->
+              <!--<value>twitter=2009110514</value>-->
+            </events>
+            <showIfEmpty>true</showIfEmpty>
+            <limit>10</limit>
+          </portlet>
+        </column>
+      </row>
+    </page>
+
+    <page name="add_art.shtml" title="Add Art"
+          description="Add art"
+          category="art">
+      <row>
+        <column width="auto" class="medium-8 main">
+          <portlet name="ContentPortlet" isUser="false">
+            <content>
+              <![CDATA[<h3>Add Art</h3>
+            <p>You must be signed in to add art. <a href="${ctx}/login?redirectTo=/add_art.shtml">Click here to sign in</a></p>
+            <p>Don't have an account? <a href="${ctx}/register">We'll get you set up once you click here.</a></p>
+              ]]>
+            </content>
+          </portlet>
+          <portlet name="AddProjectByCategoryPortlet" isUser="true">
+            <category>Art</category>
+            <title>Add Art</title>
+            <introductionMessage>
+              Thanks for helping us document and share public works of art!
+            </introductionMessage>
+            <formXml><![CDATA[
+              <form name="Add Art">
+                <section name="Profile Information">
+                  <field name="title" type="text" required="true">Title of Artwork</field>
+                  <field name="shortDescription" type="text">Brief description</field>
+                  <field name="profileDataArtist" type="text" required="true">Artist</field>
+                  <field name="profileDataMaterial" type="text" required="true">Material</field>
+                  <field name="profileDataDate" type="text" required="true">Date</field>
+                  <field name="profileDataDonatedBy" type="text" required="false">Donated By</field>
+                  <field name="profileDataCommissionedBy" type="text" required="false">Commissioned By</field>
+                </section>
+                <section name="Location Information">
+                  <field name="profileDataLocation" type="text" required="false">Location</field>
+                  <field name="addressLine1" type="text" required="false">Street Address</field>
+                  <field name="city" type="text" required="false">City</field>
+                  <field name="state" type="text" required="false">State/Province</field>
+                  <field name="postalCode" type="text" required="false">Zip/Postal Code</field>
+                  <field name="country" type="country" required="false">Country</field>
+                  <field name="latitude" type="decimal" required="false">Latitude</field>
+                  <field name="longitude" type="decimal" required="false">Longitude</field>
+                </section>
+              </form>
+            ]]></formXml>
+            <addUserAsOwner>false</addUserAsOwner>
+            <addUserWithRole>Manager</addUserWithRole>
+            <addOwnerUserWithRole>Manager</addOwnerUserWithRole>
+            <privacy>everyone</privacy>
+            <isApproved>true</isApproved>
+            <successMessage><![CDATA[
+              Thanks for helping us document and share public works of art!
+              This listing is now available in the directory and on the mobile app where you can add a photo and set a map pin.
+              Most people set the pin near the current location of the artwork. You set the "Pin" position by physically standing near the spot you want it to be.
+              If you need to change the pin location later, you can.
+            ]]></successMessage>
+            <failureMessage>The information could not be saved.</failureMessage>
+            <modules>
+              <value>Profile</value>
+              <value>Wiki=About</value>
+              <value>Photos</value>
+              <value>Team=Followers</value>
+            </modules>
+          </portlet>
+        </column>
+        <column width="300" class="medium-4">
+          <portlet name="ContentPortlet" class="panel radius callout">
+            <content>
+              <![CDATA[
+              <h3>Who can add artwork?</h3>
+              <p>Any member can add artwork, but it must be a public work of art.</p>
+              ]]>
+            </content>
           </portlet>
         </column>
       </row>
