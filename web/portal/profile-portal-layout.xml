@@ -525,15 +525,22 @@
           <row>
             <column class="medium-6">
               <portlet name="OpenDataSoftPortlet" viewer="dataTable">
-                <title>School data</title>
-                <icon>graduation-cap</icon>
+                <title>School info</title>
+                <icon>institution</icon>
                 <url>https://data.townofcary.org/api/records/1.0/search/?dataset=wcpss&amp;q=namelong%3D%22${project.title:url}%22&amp;rows=1</url>
                 <fields>calendar=Calendar Year,lograde=Lowest grade level,higrade=Highest grade level,capacityto=Student Capacity,is_title1=Is Title 1,is_magnet=Is Magnet school</fields>
                 <display>details</display>
               </portlet>
             </column>
-<!--
             <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>School data</title>
+                <icon>graduation-cap</icon>
+                <url>https://durham.opendatasoft.com/api/records/1.0/search/?dataset=north-carolina-school-performance-data&amp;refine.district=Wake+County+Schools&amp;refine.school=${project.title:url}&amp;rows=1</url>
+                <fields>grade=School Grade,schoolscore=School Score,pctpassingeogtests=Pct Passing EOG Tests,pctfreereduced=Pct Free or Reduced Lunch,growthstatus=Growth Status</fields>
+                <display>details</display>
+              </portlet>
+              <!--
               <portlet name="OpenDataSoftPortlet" viewer="dataTable">
                 <title>Contact info</title>
                 <icon>institution</icon>
@@ -541,8 +548,8 @@
                 <fields>addrnumber=Address,addrroot=Street,addrcity_1=City,addrzipcode=Zipcode,phone=Phone,website=Website</fields>
                 <display>details</display>
               </portlet>
+              -->
             </column>
--->
           </row>
 
           <row>
@@ -666,15 +673,22 @@
           <row>
             <column class="medium-6">
               <portlet name="OpenDataSoftPortlet" viewer="dataTable">
-                <title>School data</title>
-                <icon>graduation-cap</icon>
+                <title>School info</title>
+                <icon>institution</icon>
                 <url>https://data.townofcary.org/api/records/1.0/search/?dataset=wcpss&amp;q=namelong%3D%22${project.title:url}%22&amp;rows=1</url>
                 <fields>calendar=Calendar Year,lograde=Lowest grade level,higrade=Highest grade level,capacityto=Student Capacity,is_title1=Is Title 1,is_magnet=Is Magnet school</fields>
                 <display>details</display>
               </portlet>
             </column>
-<!--
             <column class="medium-6">
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>School data</title>
+                <icon>graduation-cap</icon>
+                <url>https://durham.opendatasoft.com/api/records/1.0/search/?dataset=north-carolina-school-performance-data&amp;refine.district=Wake+County+Schools&amp;refine.school=${project.title:url}&amp;rows=1</url>
+                <fields>grade=School Grade,schoolscore=School Score,pctpassingeogtests=Pct Passing EOG Tests,pctfreereduced=Pct Free or Reduced Lunch,growthstatus=Growth Status</fields>
+                <display>details</display>
+              </portlet>
+              <!--
               <portlet name="OpenDataSoftPortlet" viewer="dataTable">
                 <title>Contact info</title>
                 <icon>institution</icon>
@@ -682,8 +696,8 @@
                 <fields>addrnumber=Address,addrroot=Street,addrcity_1=City,addrzipcode=Zipcode,phone=Phone,website=Website</fields>
                 <display>details</display>
               </portlet>
+              -->
             </column>
--->
           </row>
 
           <row>
