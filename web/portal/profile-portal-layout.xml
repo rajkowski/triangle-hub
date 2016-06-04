@@ -340,7 +340,7 @@
               <portlet name="OpenDataSoftPortlet" viewer="dataTable">
                 <title>Building permits for this property</title>
                 <icon>check-square-o</icon>
-                <url>http://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;fields=application,application_type,structure_details&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
+                <url>https://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;fields=application,application_type,structure_details&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
                 <fields>application=Permit,application_type=Type,structure_details=Details</fields>
                 <unused>general_contractor=Contractor</unused>
               </portlet>
@@ -490,7 +490,7 @@
               <portlet name="OpenDataSoftPortlet" viewer="dataTable">
                 <title>Building permits for this property</title>
                 <icon>check-square-o</icon>
-                <url>http://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;fields=application,application_type,structure_details&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
+                <url>https://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;fields=application,application_type,structure_details&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
                 <fields>application=Permit,application_type=Type,structure_details=Details</fields>
                 <unused>general_contractor=Contractor</unused>
               </portlet>
@@ -572,7 +572,7 @@
               <portlet name="OpenDataSoftPortlet" viewer="dataTable">
                 <title>Building permits for this property</title>
                 <icon>check-square-o</icon>
-                <url>http://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
+                <url>https://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
                 <fields>application=Permit,application_type=Type,structure_details=Details</fields>
                 <unused>general_contractor=Contractor</unused>
               </portlet>
@@ -720,7 +720,7 @@
               <portlet name="OpenDataSoftPortlet" viewer="dataTable">
                 <title>Building permits for this property</title>
                 <icon>check-square-o</icon>
-                <url>http://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
+                <url>https://codeforcary.opendatasoft.com/api/records/1.0/search/?dataset=cary-building-inspections&amp;sort=application_date&amp;q=address%3D%22${project.title:url}%22</url>
                 <fields>application=Permit,application_type=Type,structure_details=Details</fields>
                 <unused>general_contractor=Contractor</unused>
               </portlet>
