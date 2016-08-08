@@ -338,6 +338,8 @@
           <portlet name="SearchFormPortlet" class="plain" cache="10">
             <title>Search Your Address</title>
             <category>Properties</category>
+            <scope>title</scope>
+            <sort>best</sort>
             <!--<hasMoreURL>/page/lists/${category}</hasMoreURL>-->
             <!--<hasMoreTitle>View All</hasMoreTitle>-->
             <!--<showLocation>true</showLocation>-->

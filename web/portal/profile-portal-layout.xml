@@ -305,6 +305,13 @@
                 <fields>day=Pickup Day,cycle=Recycle Week</fields>
                 <display>details</display>
               </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Building and Real estate data</title>
+                <icon>building</icon>
+                <url><![CDATA[https://durham.opendatasoft.com/api/records/1.0/search/?dataset=parcels1&fields=owner_name,sum_acre,bldg_value,land_value,date_sold,sale_price,landuse_desc&facet=site_addre&refine.site_addre=${project.title:url}]]></url>
+                <fields>owner_name=Owner,sum_acre=Acres,bldg_value=Building value,land_value=Land value,date_sold=Last sale date,sale_price=Last sale amount,landuse_desc=Description</fields>
+                <display>details</display>
+              </portlet>
             </column>
           </row>
           <row>
@@ -355,6 +362,12 @@
                 <icon>user-secret</icon>
                 <url>https://data.townofcary.org/api/records/1.0/search/?dataset=cpd-incidents&amp;fields=date_from,crime_type,residential_subdivision,geocode&amp;sort=newdate&amp;q=newdate+%3E%3D+%23now(days%3D-90)+and+(offensecategory%3DBurglary+or+Murder+or+Robbery+or+Motor+Vehicle+Theft+or+Stolen+Property+or+Vandalism+or+Arson)&amp;geofilter.distance=${project.latitude},${project.longitude},2000</url>
                 <fields>date_from=Date,crime_type=Type,residential_subdivision=Location,geocode=Street</fields>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Recent crime nearby</title>
+                <icon>user-secret</icon>
+                <url><![CDATA[https://durham.opendatasoft.com/api/records/1.0/search/?dataset=durham-police-crime-reports&facet=date_rept&facet=dow1&facet=reportedas&facet=chrgdesc&facet=big_zone&amp;sort=date_occu&amp;q=date_rept+%3E%3D+%23now(days%3D-90)&geofilter.distance=${project.latitude},${project.longitude},500&rows=10]]></url>
+                <fields>strdate=Date,hour_occu=Time,chrgdesc=Description</fields>
               </portlet>
             </column>
           </row>
@@ -475,6 +488,13 @@
                 <fields>county=County,deedacres=Acres,bldgvalue=Building value,landvalue=Land value,totalsaledate=Last sale date,totalsalevalue=Last sale amount</fields>
                 <display>details</display>
               </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Building and Real estate data</title>
+                <icon>building</icon>
+                <url><![CDATA[https://durham.opendatasoft.com/api/records/1.0/search/?dataset=parcels1&fields=owner_name,sum_acre,bldg_value,land_value,date_sold,sale_price,landuse_desc&facet=site_addre&refine.site_addre=${project.title:url}]]></url>
+                <fields>owner_name=Owner,sum_acre=Acres,bldg_value=Building value,land_value=Land value,date_sold=Last sale date,sale_price=Last sale amount,landuse_desc=Description</fields>
+                <display>details</display>
+              </portlet>
             </column>
           </row>
           <row>
@@ -505,6 +525,12 @@
                 <icon>user-secret</icon>
                 <url>https://data.townofcary.org/api/records/1.0/search/?dataset=cpd-incidents&amp;fields=date_from,crime_type,residential_subdivision,geocode&amp;sort=newdate&amp;q=newdate+%3E%3D+%23now(days%3D-90)+and+(offensecategory%3DBurglary+or+Murder+or+Robbery+or+Motor+Vehicle+Theft+or+Stolen+Property+or+Vandalism+or+Arson)&amp;geofilter.distance=${project.latitude},${project.longitude},2000</url>
                 <fields>date_from=Date,crime_type=Type,residential_subdivision=Location</fields>
+              </portlet>
+              <portlet name="OpenDataSoftPortlet" viewer="dataTable">
+                <title>Recent crime nearby</title>
+                <icon>user-secret</icon>
+                <url><![CDATA[https://durham.opendatasoft.com/api/records/1.0/search/?dataset=durham-police-crime-reports&facet=date_rept&facet=dow1&facet=reportedas&facet=chrgdesc&facet=big_zone&amp;sort=date_occu&amp;q=date_rept+%3E%3D+%23now(days%3D-90)&geofilter.distance=${project.latitude},${project.longitude},500&rows=10]]></url>
+                <fields>strdate=Date,hour_occu=Time,chrgdesc=Description</fields>
               </portlet>
             </column>
           </row>
